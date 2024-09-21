@@ -183,21 +183,14 @@ def SOS_LIN(I_mat, Z):
     return y_sol
 
 
-def algorithm7(OS_parameters, K, theta, tal, X_hat_li):
-    I_li, Z = algorithm6(K, theta, tal, X_hat_li)
-    Q = len(X_hat_li)
-    for q in range(Q):
-        for q1 in range(Q):
-            if q != q1:
-                for i in range(len(I_li[q1])):
-                    eps_li = RP(OS_parameters, X_hat_li[q], Z[i, :])
-                    eps_li = inverse_list(eps_li)
-                    if max(eps_li) <= tal:
-                        I_li[q].append(i)
-
-
-I_li = [[0, 1], [0, 2], [2], [2,1], [1], [0, 2]]
-
-Z = np.array([[1, 1, 0, 0], [0, 1, 0, 1], [1, 0, 0, 1], [1, 0, 1, 0]])
-I_li = convert_binary(I_li, 4)
-print(SOS_LIN(I_li, Z))
+# def algorithm7(OS_parameters, K, theta, tal, X_hat_li):
+#     I_li, Z = algorithm6(K, theta, tal, X_hat_li)
+#     Q = len(X_hat_li)
+#     for q in range(Q):
+#         for q1 in range(Q):
+#             if q != q1:
+#                 for i in range(len(I_li[q1])):
+#                     eps_li = RP(OS_parameters, X_hat_li[q], Z[i, :])
+#                     eps_li = inverse_list(eps_li)
+#                     if max(eps_li) <= tal:
+#                         I_li[q].append(i)

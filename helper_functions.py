@@ -46,5 +46,3 @@ def convert_binary(I_li, I):
             binary_matrix[I_li[q][j], q] = 1
 
     return binary_matrix
-
-I_li = [[0, 1], [0, 2], [2], [2,1], [1], [0, 2]]
